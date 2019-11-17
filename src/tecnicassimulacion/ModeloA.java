@@ -147,6 +147,9 @@ public class ModeloA extends javax.swing.JFrame {
         String vp = String.valueOf(p);
         JOptionPane.showMessageDialog(null, "El valor de P = "+vp);
 
+      } if (datos.equals(F2))
+      {
+          
       }
 
 
