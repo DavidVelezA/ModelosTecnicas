@@ -29,7 +29,12 @@ public class ModeloA extends javax.swing.JFrame {
     String F6 ="Tiempo promedio de espera en la fila";
     
     Icon  iF1 = new ImageIcon(getClass().getResource("/Imagenes/MAf1.PNG"));
- 
+    Icon  iF2 = new ImageIcon(getClass().getResource("/Imagenes/MAf2.PNG"));
+    Icon  iF3 = new ImageIcon(getClass().getResource("/Imagenes/MAf3.PNG"));
+    Icon  iF4 = new ImageIcon(getClass().getResource("/Imagenes/MAf4.PNG"));
+    Icon  iF5 = new ImageIcon(getClass().getResource("/Imagenes/MAf5.PNG"));
+    Icon  iF6 = new ImageIcon(getClass().getResource("/Imagenes/MAf6.PNG"));
+
     
     /**
      * Creates new form ModeloA
@@ -44,18 +49,6 @@ public class ModeloA extends javax.swing.JFrame {
         jComboBox1.addItem(F4);
         jComboBox1.addItem(F5);
         jComboBox1.addItem(F6);
-
-        
-
-//      
-//  jComboBox1.addActionListener(new ActionListener() {
-//            @Override
-//            public void actionPerformed(ActionEvent ae) {
-//                tf.setText(jComboBox1.getSelectedItem().toString());
-//            }
-//            
-//        });
-//        
 
     }
     
@@ -100,7 +93,7 @@ public class ModeloA extends javax.swing.JFrame {
         });
 
         jLabel2.setFont(new java.awt.Font("Tahoma", 0, 24)); // NOI18N
-        jLabel2.setText("Seleccione que desea calcular:");
+        jLabel2.setText("Seleccione lo que desea calcular:");
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
@@ -109,26 +102,27 @@ public class ModeloA extends javax.swing.JFrame {
             .addGroup(layout.createSequentialGroup()
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(layout.createSequentialGroup()
-                        .addGap(151, 151, 151)
-                        .addComponent(jLabel1))
-                    .addGroup(layout.createSequentialGroup()
                         .addContainerGap()
                         .addComponent(jLabel2))
                     .addGroup(layout.createSequentialGroup()
                         .addContainerGap()
                         .addComponent(jComboBox1, javax.swing.GroupLayout.PREFERRED_SIZE, 371, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                .addContainerGap(100, Short.MAX_VALUE))
+                .addContainerGap(209, Short.MAX_VALUE))
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
+                .addGap(0, 0, Short.MAX_VALUE)
+                .addComponent(jLabel1)
+                .addGap(99, 99, 99))
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
-                .addGap(21, 21, 21)
+                .addContainerGap()
                 .addComponent(jLabel1)
-                .addGap(32, 32, 32)
+                .addGap(42, 42, 42)
                 .addComponent(jLabel2)
                 .addGap(18, 18, 18)
                 .addComponent(jComboBox1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(262, Short.MAX_VALUE))
+                .addContainerGap(61, Short.MAX_VALUE))
         );
 
         pack();
@@ -141,17 +135,83 @@ public class ModeloA extends javax.swing.JFrame {
       {
         String landa = (String) JOptionPane.showInputDialog(null,"Ingrese valor de λ","MODELO A ",WIDTH,iF1, null, "");
         String mu = (String) JOptionPane.showInputDialog(null,"Ingrese valor de μ","MODELO A ",WIDTH,iF1, null, "");
+        
         double vlanda = Double.valueOf(landa);
         double vmu = Double.valueOf(mu);
         double p = vlanda / vmu;
-        String vp = String.valueOf(p);
-        JOptionPane.showMessageDialog(null, "El valor de P = "+vp);
+
+        JOptionPane.showMessageDialog(null, "El promedio del sistema es = "+p);
 
       } if (datos.equals(F2))
-      {
           
+      {
+        String n = (String) JOptionPane.showInputDialog(null,"Ingrese valor de N","MODELO A ",WIDTH,iF2, null, "");
+        String p = (String) JOptionPane.showInputDialog(null,"Ingrese valor de P","MODELO A ",WIDTH,iF2, null, "");
+        
+        double vn = Double.valueOf(n);
+        double vp = Double.valueOf(p);
+        double pn = (1-vp)* Math.pow(vp, vn);
+                
+        JOptionPane.showMessageDialog(null, "La probabilidad de cliente es = "+pn);
+      } if (datos.equals(F3))
+          
+      {
+        String landa = (String) JOptionPane.showInputDialog(null,"Ingrese valor de λ","MODELO A ",WIDTH,iF3, null, "");
+        String mu = (String) JOptionPane.showInputDialog(null,"Ingrese valor de μ","MODELO A ",WIDTH,iF3, null, "");
+        
+        double vlanda = Double.valueOf(landa);
+        double vmu = Double.valueOf(mu);
+        double l = vlanda / (vmu-vlanda);
+                
+        JOptionPane.showMessageDialog(null, "Numero promedio de clientes en el sistema de servicio = "+l);
+      }if (datos.equals(F4))
+          
+      {
+        String p = (String) JOptionPane.showInputDialog(null,"Ingrese valor de P","MODELO A ",WIDTH,iF4, null, "");
+        String l = (String) JOptionPane.showInputDialog(null,"Ingrese valor de L","MODELO A ",WIDTH,iF4, null, "");
+        
+        double vp = Double.valueOf(p);
+        double vl = Double.valueOf(l);
+        double lq = vp*vl;
+                
+        JOptionPane.showMessageDialog(null, "Numero prom. de clientes en la fila de espera = "+lq);
+              
+      }if (datos.equals(F5))
+          
+      {
+        String mu = (String) JOptionPane.showInputDialog(null,"Ingrese valor de μ","MODELO A ",WIDTH,iF5, null, "");
+        String landa = (String) JOptionPane.showInputDialog(null,"Ingrese valor de λ","MODELO A ",WIDTH,iF5, null, "");
+        
+        double vmu = Double.valueOf(mu);
+        double vlanda = Double.valueOf(landa);
+        double w = 1 / (vmu-vlanda);
+                
+        JOptionPane.showMessageDialog(null, "Tiempo prom. transcurrido en el sistema, incluido el servicio = "+w);
+              
+      }if (datos.equals(F6))
+          
+      {
+        String p = (String) JOptionPane.showInputDialog(null,"Ingrese valor de P","MODELO A ",WIDTH,iF6, null, "");
+        String w = (String) JOptionPane.showInputDialog(null,"Ingrese valor de W","MODELO A ",WIDTH,iF6, null, "");
+        
+        double vp = Double.valueOf(p);
+        double vw = Double.valueOf(w);
+        double wq = vp*vw;
+                
+        JOptionPane.showMessageDialog(null, "Tiempo prom. en la fila de espera = "+wq);
+              
       }
-
+      
+      
+      
+      
+      
+      
+      
+      
+      
+      
+      
 
     }//GEN-LAST:event_jComboBox1ActionPerformed
 
