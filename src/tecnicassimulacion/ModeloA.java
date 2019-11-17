@@ -5,43 +5,40 @@
  */
 package tecnicassimulacion;
 
-import java.awt.event.ActionEvent;
-import java.awt.event.ActionListener;
 import javax.swing.Icon;
 import javax.swing.ImageIcon;
 import javax.swing.JComboBox;
 import javax.swing.JOptionPane;
-import javax.swing.JTextField;
 
 /**
  *
  * @author Dvid
  */
 public class ModeloA extends javax.swing.JFrame {
-	
+
+                   
+
     JComboBox combo = new JComboBox();
-    JTextField tf = new JTextField(2);
     String F1 = "Utilizacion promedio del sistema";
     String F2 = "Probabilidad de que N clientes esten en el sistema";
     String F3 = "Numero promedio de clientes en el sistema de servicio";
     String F4 = "Numero promedio de clientes en la fila de espera";
     String F5 = "Tiempo promedio transcurrido en el sistema, incluido el servicio";
-    String F6 ="Tiempo promedio de espera en la fila";
-    
-    Icon  iF1 = new ImageIcon(getClass().getResource("/Imagenes/MAf1.PNG"));
-    Icon  iF2 = new ImageIcon(getClass().getResource("/Imagenes/MAf2.PNG"));
-    Icon  iF3 = new ImageIcon(getClass().getResource("/Imagenes/MAf3.PNG"));
-    Icon  iF4 = new ImageIcon(getClass().getResource("/Imagenes/MAf4.PNG"));
-    Icon  iF5 = new ImageIcon(getClass().getResource("/Imagenes/MAf5.PNG"));
-    Icon  iF6 = new ImageIcon(getClass().getResource("/Imagenes/MAf6.PNG"));
+    String F6 = "Tiempo promedio de espera en la fila";
 
-    
+    Icon iF1 = new ImageIcon(getClass().getResource("/Imagenes/MAf1.PNG"));
+    Icon iF2 = new ImageIcon(getClass().getResource("/Imagenes/MAf2.PNG"));
+    Icon iF3 = new ImageIcon(getClass().getResource("/Imagenes/MAf3.PNG"));
+    Icon iF4 = new ImageIcon(getClass().getResource("/Imagenes/MAf4.PNG"));
+    Icon iF5 = new ImageIcon(getClass().getResource("/Imagenes/MAf5.PNG"));
+    Icon iF6 = new ImageIcon(getClass().getResource("/Imagenes/MAf6.PNG"));
+
     /**
      * Creates new form ModeloA
      */
     public ModeloA() {
         initComponents();
-        
+        setLocationRelativeTo(null);
         jComboBox1.addItem("Seleccione una opcion");
         jComboBox1.addItem(F1);
         jComboBox1.addItem(F2);
@@ -51,10 +48,6 @@ public class ModeloA extends javax.swing.JFrame {
         jComboBox1.addItem(F6);
 
     }
-    
-    
-    
-    
 
     /**
      * This method is called from within the constructor to initialize the form.
@@ -81,7 +74,7 @@ public class ModeloA extends javax.swing.JFrame {
             .addGap(0, 100, Short.MAX_VALUE)
         );
 
-        setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
+        setDefaultCloseOperation(javax.swing.WindowConstants.DISPOSE_ON_CLOSE);
 
         jLabel1.setFont(new java.awt.Font("Tahoma", 0, 24)); // NOI18N
         jLabel1.setText("CALCULO DE FORMULAS MODELO A");
@@ -130,88 +123,79 @@ public class ModeloA extends javax.swing.JFrame {
 
     private void jComboBox1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jComboBox1ActionPerformed
         // TODO add your handling code here:
-      String datos = (String)jComboBox1.getSelectedItem();
-      if(datos.equals(F1))
-      {
-        String landa = (String) JOptionPane.showInputDialog(null,"Ingrese valor de λ","MODELO A ",WIDTH,iF1, null, "");
-        String mu = (String) JOptionPane.showInputDialog(null,"Ingrese valor de μ","MODELO A ",WIDTH,iF1, null, "");
-        
-        double vlanda = Double.valueOf(landa);
-        double vmu = Double.valueOf(mu);
-        double p = vlanda / vmu;
+        String datos = (String) jComboBox1.getSelectedItem();
+        if (datos.equals(F1)) {
+            String landa = (String) JOptionPane.showInputDialog(null, "Ingrese valor de λ", "MODELO A ", WIDTH, iF1, null, "");
+            String mu = (String) JOptionPane.showInputDialog(null, "Ingrese valor de μ", "MODELO A ", WIDTH, iF1, null, "");
+            if (landa != null && mu != null) {
 
-        JOptionPane.showMessageDialog(null, "El promedio del sistema es = "+p);
+                double vlanda = Double.valueOf(landa);
+                double vmu = Double.valueOf(mu);
+                double p = vlanda / vmu;
 
-      } if (datos.equals(F2))
-          
-      {
-        String n = (String) JOptionPane.showInputDialog(null,"Ingrese valor de N","MODELO A ",WIDTH,iF2, null, "");
-        String p = (String) JOptionPane.showInputDialog(null,"Ingrese valor de P","MODELO A ",WIDTH,iF2, null, "");
-        
-        double vn = Double.valueOf(n);
-        double vp = Double.valueOf(p);
-        double pn = (1-vp)* Math.pow(vp, vn);
-                
-        JOptionPane.showMessageDialog(null, "La probabilidad de cliente es = "+pn);
-      } if (datos.equals(F3))
-          
-      {
-        String landa = (String) JOptionPane.showInputDialog(null,"Ingrese valor de λ","MODELO A ",WIDTH,iF3, null, "");
-        String mu = (String) JOptionPane.showInputDialog(null,"Ingrese valor de μ","MODELO A ",WIDTH,iF3, null, "");
-        
-        double vlanda = Double.valueOf(landa);
-        double vmu = Double.valueOf(mu);
-        double l = vlanda / (vmu-vlanda);
-                
-        JOptionPane.showMessageDialog(null, "Numero promedio de clientes en el sistema de servicio = "+l);
-      }if (datos.equals(F4))
-          
-      {
-        String p = (String) JOptionPane.showInputDialog(null,"Ingrese valor de P","MODELO A ",WIDTH,iF4, null, "");
-        String l = (String) JOptionPane.showInputDialog(null,"Ingrese valor de L","MODELO A ",WIDTH,iF4, null, "");
-        
-        double vp = Double.valueOf(p);
-        double vl = Double.valueOf(l);
-        double lq = vp*vl;
-                
-        JOptionPane.showMessageDialog(null, "Numero prom. de clientes en la fila de espera = "+lq);
-              
-      }if (datos.equals(F5))
-          
-      {
-        String mu = (String) JOptionPane.showInputDialog(null,"Ingrese valor de μ","MODELO A ",WIDTH,iF5, null, "");
-        String landa = (String) JOptionPane.showInputDialog(null,"Ingrese valor de λ","MODELO A ",WIDTH,iF5, null, "");
-        
-        double vmu = Double.valueOf(mu);
-        double vlanda = Double.valueOf(landa);
-        double w = 1 / (vmu-vlanda);
-                
-        JOptionPane.showMessageDialog(null, "Tiempo prom. transcurrido en el sistema, incluido el servicio = "+w);
-              
-      }if (datos.equals(F6))
-          
-      {
-        String p = (String) JOptionPane.showInputDialog(null,"Ingrese valor de P","MODELO A ",WIDTH,iF6, null, "");
-        String w = (String) JOptionPane.showInputDialog(null,"Ingrese valor de W","MODELO A ",WIDTH,iF6, null, "");
-        
-        double vp = Double.valueOf(p);
-        double vw = Double.valueOf(w);
-        double wq = vp*vw;
-                
-        JOptionPane.showMessageDialog(null, "Tiempo prom. en la fila de espera = "+wq);
-              
-      }
-      
-      
-      
-      
-      
-      
-      
-      
-      
-      
-      
+                JOptionPane.showMessageDialog(null, "El promedio del sistema es = " + p);
+            }
+        }
+        if (datos.equals(F2)) {
+            String n = (String) JOptionPane.showInputDialog(null, "Ingrese valor de N", "MODELO A ", WIDTH, iF2, null, "");
+            String p = (String) JOptionPane.showInputDialog(null, "Ingrese valor de P", "MODELO A ", WIDTH, iF2, null, "");
+            if (n != null && p != null) {
+                double vn = Double.valueOf(n);
+                double vp = Double.valueOf(p);
+                double pn = (1 - vp) * Math.pow(vp, vn);
+
+                JOptionPane.showMessageDialog(null, "La probabilidad de cliente es = " + pn);
+            }
+        }
+        if (datos.equals(F3)) {
+            String landa = (String) JOptionPane.showInputDialog(null, "Ingrese valor de λ", "MODELO A ", WIDTH, iF3, null, "");
+            String mu = (String) JOptionPane.showInputDialog(null, "Ingrese valor de μ", "MODELO A ", WIDTH, iF3, null, "");
+            if (landa != null && mu != null) {
+
+                double vlanda = Double.valueOf(landa);
+                double vmu = Double.valueOf(mu);
+                double l = vlanda / (vmu - vlanda);
+
+                JOptionPane.showMessageDialog(null, "Numero promedio de clientes en el sistema de servicio = " + l);
+            }
+        }
+        if (datos.equals(F4)) {
+            String p = (String) JOptionPane.showInputDialog(null, "Ingrese valor de P", "MODELO A ", WIDTH, iF4, null, "");
+            String l = (String) JOptionPane.showInputDialog(null, "Ingrese valor de L", "MODELO A ", WIDTH, iF4, null, "");
+            if (p != null && l != null) {
+
+                double vp = Double.valueOf(p);
+                double vl = Double.valueOf(l);
+                double lq = vp * vl;
+
+                JOptionPane.showMessageDialog(null, "Numero prom. de clientes en la fila de espera = " + lq);
+            }
+        }
+        if (datos.equals(F5)) {
+            String mu = (String) JOptionPane.showInputDialog(null, "Ingrese valor de μ", "MODELO A ", WIDTH, iF5, null, "");
+            String landa = (String) JOptionPane.showInputDialog(null, "Ingrese valor de λ", "MODELO A ", WIDTH, iF5, null, "");
+
+            if (mu != null && landa != null) {
+                double vmu = Double.valueOf(mu);
+                double vlanda = Double.valueOf(landa);
+                double w = 1 / (vmu - vlanda);
+
+                JOptionPane.showMessageDialog(null, "Tiempo prom. transcurrido en el sistema, incluido el servicio = " + w);
+            }
+        }
+        if (datos.equals(F6)) {
+            String p = (String) JOptionPane.showInputDialog(null, "Ingrese valor de P", "MODELO A ", WIDTH, iF6, null, "");
+            String w = (String) JOptionPane.showInputDialog(null, "Ingrese valor de W", "MODELO A ", WIDTH, iF6, null, "");
+            if (p != null && w != null) {
+                double vp = Double.valueOf(p);
+                double vw = Double.valueOf(w);
+                double wq = vp * vw;
+
+                JOptionPane.showMessageDialog(null, "Tiempo prom. en la fila de espera = " + wq);
+
+            }
+        }
+
 
     }//GEN-LAST:event_jComboBox1ActionPerformed
 
