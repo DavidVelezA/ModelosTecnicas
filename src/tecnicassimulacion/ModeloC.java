@@ -119,7 +119,89 @@ public class ModeloC extends javax.swing.JFrame {
         //////////////////////////////////////////////////////////////////////////////
         //////////////////////////////////////////////////////////////////////////////
         //////////////////////////////////////////////////////////////////////////////
+          /*/
+        
+        String n = (String) JOptionPane.showInputDialog(null, "Ingrese valor de limite inferior (n)", "MODELO C ", WIDTH, iF1, null, "");
+            String N = (String) JOptionPane.showInputDialog(null, "Ingrese valor de limite superior (N)", "MODELO C ", WIDTH, iF1, null, "");
+            String landa = (String) JOptionPane.showInputDialog(null, "Ingrese valor de λ", "MODELO C ", WIDTH, iF5, null, "");
+            String mu = (String) JOptionPane.showInputDialog(null, "Ingrese valor de μ", "MODELO C ", WIDTH, iF3, null, "");
+
             
+            
+            
+            
+           // if (landa != null && mu != null) {
+
+            //    double vlanda = Double.valueOf(landa);
+            //    double vmu = Double.valueOf(mu);
+            //    double p = vlanda / vmu;
+
+             //   JOptionPane.showMessageDialog(null, "El promedio del sistema es = " + p);
+                
+                int vn = Integer.parseInt(n);
+                int vN = Integer.parseInt(N);
+                int Factorial1=1;
+                int Factorial2=1;
+
+                //primer factorial de N!
+                 while ( vN!=0) {
+                 Factorial1=Factorial1*vN;
+                // vN--;
+                 int valorFact2=vN-vn;
+                 Factorial2 = Factorial2*valorFact2;
+                        Factorial2--;   
+                        
+                      //  double resultado = 
+                               
+ 
+}
+               System.out.println(Factorial2);
+ 
+                
+                
+                
+//               do{
+//                  do{
+//                       int Nfactorial = vN*vN;
+//                       vN--;
+//                       
+//                   System.out.println("aaa "+ Nfactorial);    
+//                   } while(vN<=1);
+//       
+//                                           ++vn;
+//                                           System.out.println("asdad "+ vn);
+//
+//               }
+//                while (vn<=vN);
+//                
+                
+                
+                
+                
+                
+                
+                
+            }
+            
+            
+            
+            
+            
+            
+            
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        /*/  
             
 
         }
