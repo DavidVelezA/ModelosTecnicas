@@ -16,8 +16,6 @@ import javax.swing.JOptionPane;
  */
 public class ModeloA extends javax.swing.JFrame {
 
-                   
-
     JComboBox combo = new JComboBox();
     String F1 = "Utilizacion promedio del sistema";
     String F2 = "Probabilidad de que N clientes esten en el sistema";
@@ -32,7 +30,8 @@ public class ModeloA extends javax.swing.JFrame {
     Icon iF4 = new ImageIcon(getClass().getResource("/Imagenes/MAf4.PNG"));
     Icon iF5 = new ImageIcon(getClass().getResource("/Imagenes/MAf5.PNG"));
     Icon iF6 = new ImageIcon(getClass().getResource("/Imagenes/MAf6.PNG"));
-String a;    
+    String a;
+
     /**
      * Creates new form ModeloA
      */
@@ -59,9 +58,12 @@ String a;
     private void initComponents() {
 
         jPanel1 = new javax.swing.JPanel();
+        jButton1 = new javax.swing.JButton();
+        jPanel2 = new javax.swing.JPanel();
         jLabel1 = new javax.swing.JLabel();
         jComboBox1 = new javax.swing.JComboBox<>();
         jLabel2 = new javax.swing.JLabel();
+        jButton2 = new javax.swing.JButton();
 
         javax.swing.GroupLayout jPanel1Layout = new javax.swing.GroupLayout(jPanel1);
         jPanel1.setLayout(jPanel1Layout);
@@ -74,9 +76,18 @@ String a;
             .addGap(0, 100, Short.MAX_VALUE)
         );
 
+        jButton1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Imagenes/atras.png"))); // NOI18N
+        jButton1.setBorder(null);
+        jButton1.setBorderPainted(false);
+        jButton1.setContentAreaFilled(false);
+        jButton1.setFocusPainted(false);
+
         setDefaultCloseOperation(javax.swing.WindowConstants.DISPOSE_ON_CLOSE);
 
-        jLabel1.setFont(new java.awt.Font("Tahoma", 0, 24)); // NOI18N
+        jPanel2.setBackground(new java.awt.Color(101, 146, 191));
+
+        jLabel1.setFont(new java.awt.Font("Stencil", 0, 24)); // NOI18N
+        jLabel1.setForeground(new java.awt.Color(255, 255, 255));
         jLabel1.setText("CALCULO DE FORMULAS MODELO A");
 
         jComboBox1.addActionListener(new java.awt.event.ActionListener() {
@@ -85,34 +96,63 @@ String a;
             }
         });
 
-        jLabel2.setFont(new java.awt.Font("Tahoma", 0, 24)); // NOI18N
+        jLabel2.setFont(new java.awt.Font("Tempus Sans ITC", 0, 24)); // NOI18N
+        jLabel2.setForeground(new java.awt.Color(255, 255, 255));
         jLabel2.setText("Seleccione lo que desea calcular:");
+
+        jButton2.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Imagenes/atras.png"))); // NOI18N
+        jButton2.setBorder(null);
+        jButton2.setBorderPainted(false);
+        jButton2.setContentAreaFilled(false);
+        jButton2.setFocusPainted(false);
+        jButton2.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButton2ActionPerformed(evt);
+            }
+        });
+
+        javax.swing.GroupLayout jPanel2Layout = new javax.swing.GroupLayout(jPanel2);
+        jPanel2.setLayout(jPanel2Layout);
+        jPanel2Layout.setHorizontalGroup(
+            jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(jPanel2Layout.createSequentialGroup()
+                .addContainerGap()
+                .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(jPanel2Layout.createSequentialGroup()
+                        .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addComponent(jLabel2)
+                            .addComponent(jComboBox1, javax.swing.GroupLayout.PREFERRED_SIZE, 371, javax.swing.GroupLayout.PREFERRED_SIZE))
+                        .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel2Layout.createSequentialGroup()
+                        .addGap(0, 84, Short.MAX_VALUE)
+                        .addComponent(jLabel1)
+                        .addGap(78, 78, 78))
+                    .addGroup(jPanel2Layout.createSequentialGroup()
+                        .addComponent(jButton2)
+                        .addGap(0, 0, Short.MAX_VALUE))))
+        );
+        jPanel2Layout.setVerticalGroup(
+            jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(jPanel2Layout.createSequentialGroup()
+                .addContainerGap()
+                .addComponent(jLabel1)
+                .addGap(27, 27, 27)
+                .addComponent(jLabel2)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addComponent(jComboBox1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 34, Short.MAX_VALUE)
+                .addComponent(jButton2))
+        );
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(layout.createSequentialGroup()
-                .addContainerGap()
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(jLabel2)
-                    .addComponent(jComboBox1, javax.swing.GroupLayout.PREFERRED_SIZE, 371, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addContainerGap(209, Short.MAX_VALUE))
-            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
-                .addGap(0, 0, Short.MAX_VALUE)
-                .addComponent(jLabel1)
-                .addGap(99, 99, 99))
+            .addComponent(jPanel2, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(layout.createSequentialGroup()
-                .addContainerGap()
-                .addComponent(jLabel1)
-                .addGap(42, 42, 42)
-                .addComponent(jLabel2)
-                .addGap(18, 18, 18)
-                .addComponent(jComboBox1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(60, Short.MAX_VALUE))
+            .addComponent(jPanel2, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
         );
 
         pack();
@@ -123,78 +163,110 @@ String a;
         String datos = (String) jComboBox1.getSelectedItem();
         if (datos.equals(F1)) {
             String landa = (String) JOptionPane.showInputDialog(null, "Ingrese valor de λ", "MODELO A ", WIDTH, iF1, null, "");
+
             String mu = (String) JOptionPane.showInputDialog(null, "Ingrese valor de μ", "MODELO A ", WIDTH, iF1, null, "");
             if (landa != null && mu != null) {
+                if (!landa.isEmpty() && !mu.isEmpty()) {
+                    double vlanda = Double.valueOf(landa);
+                    double vmu = Double.valueOf(mu);
+                    double p = vlanda / vmu;
 
-                double vlanda = Double.valueOf(landa);
-                double vmu = Double.valueOf(mu);
-                double p = vlanda / vmu;
-
-                JOptionPane.showMessageDialog(null, "El promedio del sistema es = " + p);
+                    JOptionPane.showMessageDialog(null, "El promedio del sistema es = " + p);
+                }
             }
+            JOptionPane.showMessageDialog(null, "valores nulos");
+
         }
+
         if (datos.equals(F2)) {
             String n = (String) JOptionPane.showInputDialog(null, "Ingrese valor de N", "MODELO A ", WIDTH, iF2, null, "");
             String p = (String) JOptionPane.showInputDialog(null, "Ingrese valor de P", "MODELO A ", WIDTH, iF2, null, "");
             if (n != null && p != null) {
-                double vn = Double.valueOf(n);
-                double vp = Double.valueOf(p);
-                double pn = (1 - vp) * Math.pow(vp, vn);
+                if (!n.isEmpty() && !p.isEmpty()) {
 
-                JOptionPane.showMessageDialog(null, "La probabilidad de cliente es = " + pn);
+                    double vn = Double.valueOf(n);
+                    double vp = Double.valueOf(p);
+                    double pn = (1 - vp) * Math.pow(vp, vn);
+
+                    JOptionPane.showMessageDialog(null, "La probabilidad de cliente es = " + pn);
+                }
             }
+            JOptionPane.showMessageDialog(null, "valores nulos");
+
         }
         if (datos.equals(F3)) {
             String landa = (String) JOptionPane.showInputDialog(null, "Ingrese valor de λ", "MODELO A ", WIDTH, iF3, null, "");
             String mu = (String) JOptionPane.showInputDialog(null, "Ingrese valor de μ", "MODELO A ", WIDTH, iF3, null, "");
             if (landa != null && mu != null) {
+                if (!landa.isEmpty() && !mu.isEmpty()) {
 
-                double vlanda = Double.valueOf(landa);
-                double vmu = Double.valueOf(mu);
-                double l = vlanda / (vmu - vlanda);
+                    double vlanda = Double.valueOf(landa);
+                    double vmu = Double.valueOf(mu);
+                    double l = vlanda / (vmu - vlanda);
 
-                JOptionPane.showMessageDialog(null, "Numero promedio de clientes en el sistema de servicio = " + l);
+                    JOptionPane.showMessageDialog(null, "Numero promedio de clientes en el sistema de servicio = " + l);
+                }
             }
+            JOptionPane.showMessageDialog(null, "valores nulos");
         }
         if (datos.equals(F4)) {
             String p = (String) JOptionPane.showInputDialog(null, "Ingrese valor de P", "MODELO A ", WIDTH, iF4, null, "");
             String l = (String) JOptionPane.showInputDialog(null, "Ingrese valor de L", "MODELO A ", WIDTH, iF4, null, "");
             if (p != null && l != null) {
+                if (!p.isEmpty() && !l.isEmpty()) {
 
-                double vp = Double.valueOf(p);
-                double vl = Double.valueOf(l);
-                double lq = vp * vl;
+                    double vp = Double.valueOf(p);
+                    double vl = Double.valueOf(l);
+                    double lq = vp * vl;
 
-                JOptionPane.showMessageDialog(null, "Numero prom. de clientes en la fila de espera = " + lq);
+                    JOptionPane.showMessageDialog(null, "Numero prom. de clientes en la fila de espera = " + lq);
+                }
             }
+            JOptionPane.showMessageDialog(null, "valores nulos");
+
         }
         if (datos.equals(F5)) {
             String mu = (String) JOptionPane.showInputDialog(null, "Ingrese valor de μ", "MODELO A ", WIDTH, iF5, null, "");
             String landa = (String) JOptionPane.showInputDialog(null, "Ingrese valor de λ", "MODELO A ", WIDTH, iF5, null, "");
 
             if (mu != null && landa != null) {
-                double vmu = Double.valueOf(mu);
-                double vlanda = Double.valueOf(landa);
-                double w = 1 / (vmu - vlanda);
+                if (!mu.isEmpty() && !landa.isEmpty()) {
 
-                JOptionPane.showMessageDialog(null, "Tiempo prom. transcurrido en el sistema, incluido el servicio = " + w);
+                    double vmu = Double.valueOf(mu);
+                    double vlanda = Double.valueOf(landa);
+                    double w = 1 / (vmu - vlanda);
+
+                    JOptionPane.showMessageDialog(null, "Tiempo prom. transcurrido en el sistema, incluido el servicio = " + w);
+                }
             }
+            JOptionPane.showMessageDialog(null, "valores nulos");
         }
         if (datos.equals(F6)) {
             String p = (String) JOptionPane.showInputDialog(null, "Ingrese valor de P", "MODELO A ", WIDTH, iF6, null, "");
             String w = (String) JOptionPane.showInputDialog(null, "Ingrese valor de W", "MODELO A ", WIDTH, iF6, null, "");
             if (p != null && w != null) {
-                double vp = Double.valueOf(p);
-                double vw = Double.valueOf(w);
-                double wq = vp * vw;
+                if (!p.isEmpty() && !w.isEmpty()) {
 
-                JOptionPane.showMessageDialog(null, "Tiempo prom. en la fila de espera = " + wq);
+                    double vp = Double.valueOf(p);
+                    double vw = Double.valueOf(w);
+                    double wq = vp * vw;
 
+                    JOptionPane.showMessageDialog(null, "Tiempo prom. en la fila de espera = " + wq);
+
+                }
             }
+            JOptionPane.showMessageDialog(null, "valores nulos");
         }
 
 
     }//GEN-LAST:event_jComboBox1ActionPerformed
+
+    private void jButton2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton2ActionPerformed
+        // TODO add your handling code here:
+        Principal p = new Principal();
+        p.setVisible(true);
+        dispose();
+    }//GEN-LAST:event_jButton2ActionPerformed
 
     /**
      * @param args the command line arguments
@@ -232,9 +304,12 @@ String a;
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
+    private javax.swing.JButton jButton1;
+    private javax.swing.JButton jButton2;
     private javax.swing.JComboBox<String> jComboBox1;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel2;
     private javax.swing.JPanel jPanel1;
+    private javax.swing.JPanel jPanel2;
     // End of variables declaration//GEN-END:variables
 }
